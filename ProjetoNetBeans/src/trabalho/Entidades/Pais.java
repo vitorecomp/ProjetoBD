@@ -4,10 +4,13 @@
  */
 package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.Foto;
+
 public class Pais {
-    
+
+    int id;
+    String nome;
+    String Sigla;
+    String Capital;
+    Foto Bandeira;
 }

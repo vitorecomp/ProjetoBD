@@ -4,10 +4,11 @@
  */
 package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.*;
+
 public class Integrante {
-    
+    int id;
+    String nome;
+    Data dataNasc;
+    Foto foto;
 }

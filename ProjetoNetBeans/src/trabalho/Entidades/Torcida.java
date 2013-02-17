@@ -4,10 +4,11 @@
  */
 package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.Foto;
+
 public class Torcida {
-    
+    int id;
+    int Pais;
+    Foto foto;
+    int Presidente;
 }

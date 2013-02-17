@@ -4,10 +4,12 @@
  */
 package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.Tempo;
+
 public class Gol {
-    
+    int id;
+    int jogo;
+    int Autor;
+    int tempo;
+    Tempo hora;
 }

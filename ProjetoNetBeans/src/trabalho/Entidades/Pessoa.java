@@ -4,10 +4,10 @@
  */
 package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.Data;
+
 public class Pessoa {
-    
+    int id;
+    String nome;
+    Data datanasc;
 }
