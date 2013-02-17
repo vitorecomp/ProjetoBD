@@ -2,12 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidades;
+package Trabalho.Entidades;
+import trabalho.TiposBasicos.*;
 
-/**
- *
- * @author Vitor
- */
 public class Bolao {
-    
+    int id;
+    String Aposta;
+    Data data;
 }

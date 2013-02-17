@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidades;
+package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
+import trabalho.TiposBasicos.*;
+
 public class Cartao {
-    
+    int id;
+    int jogador;
+    char tipo;
+    Tempo tempo;   
 }

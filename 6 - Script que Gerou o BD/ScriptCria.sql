@@ -80,7 +80,7 @@ CREATE TABLE Torcida
 --ok
 CREATE TABLE Copa
 	(
-		Ano DATE UNSIGNED PRIMARY KEY,
+		Ano INTEGER UNSIGNED PRIMARY KEY,
 		idPais references Pais(idPais),
 		dataIni DATE NOT NULL,
 		dataFim DATE NOT NULL
@@ -122,7 +122,8 @@ CREATE TABLE Gol
 CREATE TABLE Cartao
 	(
 		idCartao INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-		idJogo references Jogo(idJogo),
+		Jogo references Jogo(idJogo),
+		Integrante references Integrante(idIntegrante),
 		Tipo char NOT NULL,
 		Tempo TIME
 	);

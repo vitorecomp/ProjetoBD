@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidades;
+package Trabalho.Entidades;
 
-/**
- *
- * @author Vitor
- */
 public class Estadio {
-    
+    int id;
+    int pais;
+    String Cidade;
+    double Capacidade;
+    String Nome;        
 }

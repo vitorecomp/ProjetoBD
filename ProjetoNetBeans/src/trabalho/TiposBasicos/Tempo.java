@@ -8,6 +8,6 @@ package trabalho.TiposBasicos;
  *
  * @author Vitor
  */
-public class FotoBandeira {
+public class Tempo {
     
 }
