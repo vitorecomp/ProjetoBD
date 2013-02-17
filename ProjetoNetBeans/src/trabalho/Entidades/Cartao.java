@@ -30,7 +30,7 @@ public class Cartao {
     }
 
     void setId(int id) throws IllegalArgumentException {
-        if (id > 0) {
+        if (id >= 0) {
             this.id = id;
         } else {
             throw new IllegalArgumentException("idInvalido");
@@ -38,9 +38,8 @@ public class Cartao {
     }
 
     void setJogador(int jogador) throws IllegalArgumentException {
-        if (jogador > 0) {
+        if (jogador >= 0) {
             this.jogador = jogador;
-
         } else {
             throw new IllegalArgumentException("jogador invalido");
         }

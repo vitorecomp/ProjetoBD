@@ -30,7 +30,7 @@ public class Copa {
     }
 
     void setAno(int ano) throws IllegalArgumentException {
-        if (ano > 1800) {
+        if (ano >= 1800) {
             this.ano = ano;
         } else {
             throw new IllegalArgumentException("ano invalido");
@@ -38,7 +38,7 @@ public class Copa {
     }
 
     void setPais(int pais) throws IllegalArgumentException {
-        if (pais > 0) {
+        if (pais >= 0) {
             this.pais = pais;
         } else {
             throw new IllegalArgumentException("pais invalido");

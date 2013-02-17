@@ -24,8 +24,8 @@ public class Bolao {
         return this.data;
     }
 
-    void setID(int id) throws IllegalArgumentException {
-        if (id > 0) {
+    void setId(int id) throws IllegalArgumentException {
+        if (id >= 0) {
             this.id = id;
         } else {
             throw new IllegalArgumentException("idInvalido");
