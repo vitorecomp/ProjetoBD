@@ -33,7 +33,7 @@ CREATE TABLE Pais
 CREATE TABLE Estadio
 	(
 		idEstadio INTEGER USIGNED PRIMARY KEY AUTO_INCREMENT,
-				idPais references Pais(idPais),
+		idPais references Pais(idPais),
 		Cidade varchar(65) NOT NULL,
 		Capacidade DOUBLE UNSIGNED NOT NULL,
 		Nome varchar(45) NOT NULL
@@ -107,7 +107,7 @@ CREATE TABLE Jogo
 		Equipe2 references Equipe(idEquipe)
 	);
 
---ok
+--ok ---tempo tem que tar qui
 CREATE TABLE Gol
 	(
 		idGol INTEGER UNSIGNED PRIMARY kEY AUTO_INCREMENT,

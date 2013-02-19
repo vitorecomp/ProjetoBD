@@ -8,12 +8,12 @@ package InterfaceUsuario;
  *
  * @author Vitor
  */
-public class BotoesCopa extends javax.swing.JPanel {
+public class TelaCopa extends javax.swing.JPanel {
 
     /**
-     * Creates new form BotoesCopa
+     * Creates new form TelaCopa
      */
-    public BotoesCopa() {
+    public TelaCopa() {
         initComponents();
     }
 
