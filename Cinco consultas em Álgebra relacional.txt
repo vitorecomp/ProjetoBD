@@ -1,0 +1,18 @@
+
+1. SELECT Paises.Nome, Integrantes.Nome  FROM Paises, Equipe, Copa , Equipe_has_Integrantes, Integrantes 
+WHERE Paises.idPais = Paises.Paises_idPais AND  Equipe.idEquipe = Equipe.Equipe_idEquipe AND Equipe_has_Integrantes.idIntegrantes = Equipe_has_Integrantes.Integrantes_idIntegrantes AND Equipe.Copa_ano = 1994 AND Paises.Nome = "França";
+
+2.SELECT Paises.Nome FROM Paises, Equipes, Jogos WHERE Jogos.Copa_ano = 2002 AND Data = "14/06/2002" AND Equipe_idEquipe = idEuipe AND Equipe_idEquipe1 = idEquipe;
+
+3. SELECT COUNT(*) FROM Paises, Equipes, Jogos, Gols WHERE Jogos.Copa_ano = 1900 AND Data = "07/06/1900" AND Equipe_idEquipe = idEuipe AND Equipe_idEquipe1 = idEquipe AND Jogos.idJogos = Gols.Jogos_idJogos;
+
+4. SELECT COUNT(*) FROM Paises, Equipes, Jogos, Cartao WHERE Jogos.Copa_ano = 1998 AND Data = "08/06/1998" AND Equipe_idEquipe = idEuipe AND Equipe_idEquipe1 = idEquipe AND Jogos.idJogos = Cartao.Jogos_idJogos;
+
+5. SELECT Paises.Nome, Integrante.nome, Copa.Ano FROM Paises, Copa, Equipe, Integrante WHERE Paises.idPais = Copa.Paises_idPais AND Equipe.idTreinador = Integrante.idIntegrante
+
+
+1 - Retorna os integrantes da equipe da França da copa de 1994
+2 - Retorna As equipes que jogaram no dia 14/06/2002
+3 - Retorna a quantidade de gols dos jogos do dia 07/06/1900
+4 - Retorna a quantidade de cartões do dia 08/06/1998
+5 - Retorna os Integrantes e o nome do país das equipes que jogam em casa
