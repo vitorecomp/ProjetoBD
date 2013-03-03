@@ -18,8 +18,7 @@ DROP TABLE IF EXISTS Equipe_has_Integrante
 DROP TABLE IF EXISTS Jogo_has_Bolao;
 
 --ver do sql 
-	--dar uma olhada no TIME
-	--dar uma olhada no BLOB
+
 	--der uma olhada se um long int nao nos satizfaz na capacidade do estadio
 
 --perguntas
@@ -53,7 +52,7 @@ CREATE TABLE Estadio
 		idEstadio INTEGER USIGNED PRIMARY KEY AUTO_INCREMENT,
 		idPais references Pais(idPais),
 		Cidade varchar(65) NOT NULL,
-		Capacidade DOUBLE UNSIGNED NOT NULL,
+		Capacidade LONG INT UNSIGNED NOT NULL,
 		Nome varchar(45) NOT NULL
 	);
 
@@ -65,44 +64,45 @@ CREATE TABLE Bolao
 		data DATE NOT NULL
 	);
 
---falta 1 e dar um review na nacianlidade
+
 CREATE TABLE Pessoa
 	(
 		idPessoa  INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		Nome varchar(45) NOT NULL,
-		Nacionalidade ...,
+		Nacionalidade varchar(45) NOT NULL,
 		Data_Nasc date NOT NULL,
 
 	);
 
---sera que tem que existir / dar um review na nacianlidade
+
 CREATE TABLE Integrante
 	(
 		idIntegrante INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		Nome varchar(45) NOT NULL,
-		Nacionalidade ...,
+		Nacionalidade varchar(45) NOT NULL,
 		Data_Nasc DATE NOT NULL,
 		Foto BLOB
 	);
 
---Foto tem que ser uma nova tabela
---presidente e um referencia a uma pessoa
+
+
 CREATE TABLE Torcida 
 	(
 		idTorcida INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		idPais references Pais(idPais) NOT NULL,
 		Foto BLOB,
-		Presidente 
+		Presidente  VARCHAR(45) NOT NULL;
 	);
 
 --ok
---po ta faltando o campeao
+
 CREATE TABLE Copa
 	(
 		Ano INTEGER UNSIGNED PRIMARY KEY,
 		idPais references Pais(idPais),
 		dataIni DATE NOT NULL,
 		dataFim DATE NOT NULL
+		Camp references Pais(idPais),
 
 	);
 
@@ -115,8 +115,8 @@ CREATE TABLE Equipe
 		idCopa references Copa(Ano)
 	);
 
---falta 2 ja dei 1 review
---temos que ter os times
+
+
 CREATE TABLE Jogo
 	(
 		idJogo INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
@@ -126,13 +126,12 @@ CREATE TABLE Jogo
 		Equipe2 references Equipe(idEquipe)
 	);
 
---ok ---tempo tem que tar qui
+
 CREATE TABLE Gol
 	(
 		idGol INTEGER UNSIGNED PRIMARY kEY AUTO_INCREMENT,
 		Jogo references Jogo(idJogo),
 		Autor references Integrante(idIntegrante),
-		Tempo INTEGER NOT NULL,
 		Relogio TIME
 
 	);
@@ -144,7 +143,7 @@ CREATE TABLE Cartao
 		Jogo references Jogo(idJogo),
 		Integrante references Integrante(idIntegrante),
 		Tipo char NOT NULL,
-		Tempo TIME
+		Relogio TIME
 	);
 
 --Tabelas de Ligaçao

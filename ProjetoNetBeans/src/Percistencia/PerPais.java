@@ -15,7 +15,7 @@ public class PerPais {
 
     public void inserePais(Pais pais) {
         try {
-            Connection con = BancoDeDados.getConexao();
+            Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
             String comandoSQL = "INSERT INTO TB_USUARIO(NOME, ENDERECO, EMAIL)"
                     + " VALUES ('" + pais.getNome() + "','" + pais.getId() + "','" + pais.getSigla() + "' ) ";
