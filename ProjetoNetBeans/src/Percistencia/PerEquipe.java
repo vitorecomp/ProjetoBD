@@ -1,19 +1,19 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Percistencia;
 
 import Trabalho.Entidades.Equipe;
+import java.sql.*;
 
-/**
- *
- * @author Vitor
- */
 public class PerEquipe {
     void create(Equipe equipe)
     {
-        
+        try{
+            Connection con = BancodeDados.getConexao();
+            Statement stmt = con.createStatement();
+            String query = "INSERT INTO Equipe";
+        }catch(SQLException e){
+            
+        }
     }
     
     void update(Equipe equipe)
