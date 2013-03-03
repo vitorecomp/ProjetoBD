@@ -28,9 +28,21 @@ public class PerPais {
         }
     }
 
-    void update(Pais pais) {
+    public void updatePais(Pais pais) {
+        try {
+            Connection con = BancodeDados.getConexao();
+            Statement stmt = con.createStatement();
+            String comandoSQL = "INSERT INTO TB_USUARIO(NOME, ENDERECO, EMAIL)"
+                    + " VALUES ('" + pais.getNome() + "','" + pais.getId() + "','" + pais.getSigla() + "' ) ";
+            stmt.executeUpdate(comandoSQL);
+            stmt.close();
+            con.commit();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Problemas ao abrir a conexão com o BD");
+        }
     }
-
+    
     void delete(int id) {
     }
 }
