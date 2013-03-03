@@ -4,6 +4,7 @@
  */
 package Percistencia;
 
+import java.sql.*;
 import Trabalho.Entidades.Pais;
 
 /**
@@ -12,7 +13,19 @@ import Trabalho.Entidades.Pais;
  */
 public class PerPais {
 
-    void create(Pais pais) {
+    public void inserePais(Pais pais) {
+        try {
+            Connection con = BancoDeDados.getConexao();
+            Statement stmt = con.createStatement();
+            String comandoSQL = "INSERT INTO TB_USUARIO(NOME, ENDERECO, EMAIL)"
+                    + " VALUES ('" + pais.getNome() + "','" + pais.getId() + "','" + pais.getSigla() + "' ) ";
+            stmt.executeUpdate(comandoSQL);
+            stmt.close();
+            con.commit();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Problemas ao abrir a conexão com o BD");
+        }
     }
 
     void update(Pais pais) {
