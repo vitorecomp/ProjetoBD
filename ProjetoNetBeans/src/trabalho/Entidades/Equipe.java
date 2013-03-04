@@ -11,23 +11,23 @@ public class Equipe {
     private int pais;
     private int copa;
 
-    int getId() {
+    public int getId() {
         return this.id;
     }
 
-    int getTreinador() {
+    public int getTreinador() {
         return this.treinador;
     }
 
-    int getPais() {
+    public int getPais() {
         return this.pais;
     }
 
-    int getCopa() {
+    public int getCopa() {
         return this.copa;
     }
 
-    void setId(int id) throws IllegalArgumentException {
+    public void setId(int id) throws IllegalArgumentException {
         if (id >= 0) {
             this.id = id;
         } else {
@@ -35,7 +35,7 @@ public class Equipe {
         }
     }
 
-    void setTreinador(int treinador) throws IllegalArgumentException {
+    public void setTreinador(int treinador) throws IllegalArgumentException {
         if (treinador >= 0) {
             this.treinador = treinador;
         } else {
@@ -43,7 +43,7 @@ public class Equipe {
         }
     }
 
-    void setPais(int pais) throws IllegalArgumentException {
+    public void setPais(int pais) throws IllegalArgumentException {
         if (pais >= 0) {
             this.pais = pais;
         } else {
@@ -51,7 +51,7 @@ public class Equipe {
         }
     }
 
-    void setCopa(int copa) throws IllegalArgumentException {
+    public void setCopa(int copa) throws IllegalArgumentException {
         if (copa >= 1800) {
             this.copa = copa;
         } else {
