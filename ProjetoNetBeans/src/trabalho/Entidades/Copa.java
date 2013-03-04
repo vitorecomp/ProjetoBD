@@ -8,54 +8,57 @@ import trabalho.TiposBasicos.Data;
 
 public class Copa {
 
+    public Copa(){
+    }   
+    
     private int ano;
     private int pais;
     private Data inicio;
     private Data fim;
 
-    int getAno() {
+   public int getAno() {
         return this.ano;
-    }
+        }
 
-    int getPais() {
+   public int getPais() {
         return this.pais;
-    }
+        }
 
-    Data getInicio() {
+  public Data getInicio() {
         return this.inicio;
-    }
+        }
 
-    Data getFim() {
+  public Data getFim() {
         return this.fim;
-    }
+        }
 
-    void setAno(int ano) throws IllegalArgumentException {
+   public void setAno(int newano) throws IllegalArgumentException {
         if (ano >= 1800) {
-            this.ano = ano;
+            this.ano = newano;
         } else {
             throw new IllegalArgumentException("ano invalido");
         }
     }
 
-    void setPais(int pais) throws IllegalArgumentException {
+   public void setPais(int newpais) throws IllegalArgumentException {
         if (pais >= 0) {
-            this.pais = pais;
+            this.pais = newpais;
         } else {
             throw new IllegalArgumentException("pais invalido");
         }
     }
 
-    void setIncio(Data inicio) throws IllegalArgumentException {
+   public void setInicio(Data newinicio) throws IllegalArgumentException {
         if (inicio != null) {
-            this.inicio = inicio;
+            this.inicio = newinicio;
         } else {
             throw new IllegalArgumentException("data de inicio vazia");
         }
     }
 
-    void setFim(Data fim) throws IllegalArgumentException {
+   public void setFim(Data newfim) throws IllegalArgumentException {
         if (fim != null) {
-            this.fim = fim;
+            this.fim = newfim;
         } else {
             throw new IllegalArgumentException("data de termino vazia");
         }
