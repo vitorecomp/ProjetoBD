@@ -94,6 +94,62 @@ public class PerCopa {
     }
 }
 
+ public Vector selecionaTodasCopasDoPais(int idPais){
+     
+    Vector listaCopas = new Vector();
+    Copa copa = null;
+    
+    try{
+    Connection con = BancodeDados.getConexao();
+    Statement stmt = con.createStatement();
+    String query = "SELECT * FROM Copa WHERE pais =" + idPais + ";" ;
+    ResultSet res = stmt.executeQuery(query);
+    
+    while (res.next() ){
+        copa = new Copa();
+        copa.setAno(res.getInt("Ano"));
+        copa.setPais(res.getInt("Pais"));
+        copa.setInicio(res.getDate("Inicio"));
+        copa.setFim(res.getDate("Fim"));
+        listaCopas.add(copa);
+    }
+    stmt.close();
+    con.close();
+    
+    return listaCopas;
+    }catch(SQLException e){
+        System.out.println("Problemas ao abrir a conexao com o BD");
+        return null;
+     }
+}
+ 
+ public Vector selecionaTodasCopasPorCampeao(int idCamp){
+     
+    Vector listaCopas = new Vector();
+    Copa copa = null;
+    
+    try{
+    Connection con = BancodeDados.getConexao();
+    Statement stmt = con.createStatement();
+    String query = "SELECT * FROM Copa WHERE Camp=" + idCamp + ";" ;
+    ResultSet res = stmt.executeQuery(query);
+    while (res.next() ){
+    copa = new Copa();
+    copa.setAno(res.getInt("Ano"));
+    copa.setPais(res.getInt("Pais"));
+    copa.setInicio(res.getDate("Inicio"));
+    copa.setFim(res.getDate("Fim"));
+    listaCopas.add(copa);
+    }
+    stmt.close();
+    con.close();
+    return listaCopas;
+    }catch(SQLException e){
+        System.out.println("Problemas ao abrir a conexao com o BD");
+        return null;
+    }
+}
+ 
  public int deletaCopa(int ano){
     
     try{
