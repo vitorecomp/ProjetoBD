@@ -19,7 +19,7 @@ public class PerPais {
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "insert into Integrantes(idIntegrantes, Nome, Nacionalidade, Pais_Nasc) values (1, 'Pierre', 'Frances', 'França');";
+            String query = "insert into Integrantes(idIntegrantes, Nome, Nacionalidade, Pais_Nasc) values (5, 'Pierre', 'Frances', 'França');";
             stmt.executeUpdate(query);
             stmt.close();
             con.commit();

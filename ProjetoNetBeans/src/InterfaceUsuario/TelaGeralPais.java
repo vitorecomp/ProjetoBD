@@ -18,15 +18,15 @@ public class TelaGeralPais extends javax.swing.JPanel {
     private DefaultListModel lista = new DefaultListModel();
 
     void initialize() {
-
+int i = 0;
         PerPais copa = new PerPais();
         Pais varCopa;
         Vector<Pais> time;
         time = copa.selectAll();
         while (!time.isEmpty()) {
-            varCopa = time.remove(0);
+            varCopa = time.remove(i);
             lista.addElement(varCopa.getId());
-
+i++;
         }
         jList1.setModel(lista);
     }    /**

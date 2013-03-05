@@ -18,15 +18,15 @@ public class TelaGeralCopa extends javax.swing.JPanel {
     private DefaultListModel lista = new DefaultListModel();
 
     void initializeList() {
-
+    int i=0;
         PerCopa copa = new PerCopa();
         Copa varCopa;
         Vector<Copa> time;
         time = copa.selecionaTodasCopas();
         while (!time.isEmpty()) {
-            varCopa = time.remove(0);
+            varCopa = time.remove(i);
             lista.addElement(varCopa.getAno());
-
+            i++;
         }
         jList1.setModel(lista);
     }
