@@ -5,6 +5,7 @@
 package InterfaceUsuario;
 
 import Percistencia.PerEquipe;
+import Percistencia.PerPais;
 import Trabalho.Entidades.Equipe;
 import Trabalho.Entidades.Pais;
 

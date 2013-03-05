@@ -184,7 +184,7 @@ public class TelaPaisF extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPaisF().setVisible(true);
+                //new TelaPaisF().setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
 package Percistencia;
 
 import java.sql.*;
+import java.util.*;
 import Trabalho.Entidades.Pais;
 
 /**
@@ -14,35 +15,99 @@ import Trabalho.Entidades.Pais;
 public class PerPais {
 
     public void inserePais(Pais pais) {
-        try {
+        
+        try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String comandoSQL = "INSERT INTO TB_USUARIO(NOME, ENDERECO, EMAIL)"
-                    + " VALUES ('" + pais.getNome() + "','" + pais.getId() + "','" + pais.getSigla() + "' ) ";
-            stmt.executeUpdate(comandoSQL);
+            String query = "INSERT INTO Pais(id, nome, sigla, capital, bandeira)" + "VALUES(" + pais.getId() + "," + pais.getNome() + "," + "," + pais.getSigla() + "," + "," + pais.getCapital() + "," + pais.getFoto() + ");";
+            stmt.executeUpdate(query);
             stmt.close();
             con.commit();
             con.close();
-        } catch (SQLException e) {
-            System.out.println("Problemas ao abrir a conexão com o BD");
-        }
+        }catch(SQLException e){
+        }   
     }
 
     public void updatePais(Pais pais) {
-        try {
+       try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String comandoSQL = "INSERT INTO TB_USUARIO(NOME, ENDERECO, EMAIL)"
-                    + " VALUES ('" + pais.getNome() + "','" + pais.getId() + "','" + pais.getSigla() + "' ) ";
-            stmt.executeUpdate(comandoSQL);
+            String query = "UPDATE Pais SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "bandeira=" + pais.getFoto() + "WHERE id=" + pais.getId() + ";";
+            stmt.executeUpdate(query);
             stmt.close();
             con.commit();
             con.close();
-        } catch (SQLException e) {
-            System.out.println("Problemas ao abrir a conexão com o BD");
+        }catch(SQLException e){
+            
+        }
+  }
+    
+    public void deletePais(int id) {
+        try{
+            Connection con = BancodeDados.getConexao();
+            Statement stmt = con.createStatement();
+            
+            stmt.executeUpdate("Delete FROM Pais WHERE id = " + id + ";");
+            stmt.close();
+        }catch(SQLException e){
+            
         }
     }
     
-    void delete(int id) {
+    public Pais selectPais(int id){
+        
+        try{
+            Connection con = BancodeDados.getConexao();
+            Pais pais = new Pais();
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM Pais WHERE id=" + id + ";";
+            ResultSet res = stmt.executeQuery(query);
+            
+            if(res.next()){
+                pais = new Pais();
+                pais.setId(res.getInt("id"));
+                pais.setNome(res.getString("nome"));
+                pais.setSigla(res.getString("sigla"));
+                pais.setCapital(res.getString("capital"));
+                //pais.setFoto(res.getBlob());
+            }
+            stmt.close();
+            con.close();
+            
+            return pais;            
+        }catch(SQLException e){
+            return null;
+        }
     }
+    
+    public Vector selectAll(){
+        Vector listaPais = new Vector();
+        Pais pais = null;
+        
+        try{
+            Connection con = BancodeDados.getConexao();
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM Pais;";
+            ResultSet res = stmt.executeQuery(query);
+            
+            if(res.next()){
+                pais = new Pais();
+                pais.setId(res.getInt("id"));
+                pais.setNome(res.getString("nome"));
+                pais.setSigla(res.getString("sigla"));
+                pais.setCapital(res.getString("capital"));
+                //pais.setFoto(res.getBlob());
+                listaPais.add(pais);
+            }
+            stmt.close();
+            con.close();
+            
+            return listaPais;
+            
+        }catch(SQLException e){
+            return null;
+        }
+    }
+    
+    
 }
