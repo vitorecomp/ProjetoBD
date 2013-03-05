@@ -38,7 +38,7 @@ public class Pais {
         if (id >= 0) {
             this.id = id;
         } else {
-            throw new IllegalArgumentException("id invalido");
+            //throw new IllegalArgumentException("id invalido");
         }
     }
 
@@ -46,7 +46,7 @@ public class Pais {
         if (nome.length() <= 45) {
             this.nome = nome;
         } else {
-            throw new IllegalArgumentException("nome invalido");
+            //throw new IllegalArgumentException("nome invalido");
         }
     }
 
@@ -54,7 +54,7 @@ public class Pais {
         if (sigla.length() <= 3) {
             this.sigla = sigla;
         } else {
-            throw new IllegalArgumentException("sigla invalida");
+            //throw new IllegalArgumentException("sigla invalida");
         }
     }
 
@@ -62,7 +62,7 @@ public class Pais {
         if (capital.length() <= 45) {
             this.capital = capital;
         } else {
-            throw new IllegalArgumentException("capital invalida");
+            // new IllegalArgumentException("capital invalida");
         }
     }
 
@@ -70,7 +70,7 @@ public class Pais {
         if (foto != null) {
             this.bandeira = foto;
         } else {
-            throw new IllegalArgumentException("bandeira invalida");
+            //throw new IllegalArgumentException("bandeira invalida");
         }
     }
 }

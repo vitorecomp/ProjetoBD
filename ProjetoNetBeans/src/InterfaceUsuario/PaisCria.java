@@ -127,7 +127,7 @@ public class PaisCria extends javax.swing.JPanel {
         String endimg = jTextField4.getText();
 
         Pais copa = new Pais();
-        copa.setCapital(capital);
+        //copa.setCapital(capital);
         
         copa.setNome(nome);
         copa.setSigla(sigla);
