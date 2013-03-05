@@ -15,6 +15,7 @@ public class Copa {
     private int pais;
     private Data inicio;
     private Data fim;
+    private int camp;
 
    public int getAno() {
         return this.ano;
@@ -33,7 +34,7 @@ public class Copa {
         }
 
    public void setAno(int newano) throws IllegalArgumentException {
-        if (ano >= 1800) {
+        if (newano >= 1800) {
             this.ano = newano;
         } else {
             throw new IllegalArgumentException("ano invalido");
@@ -41,7 +42,7 @@ public class Copa {
     }
 
    public void setPais(int newpais) throws IllegalArgumentException {
-        if (pais >= 0) {
+        if (newpais >= 0) {
             this.pais = newpais;
         } else {
             throw new IllegalArgumentException("pais invalido");
@@ -49,7 +50,7 @@ public class Copa {
     }
 
    public void setInicio(Data newinicio) throws IllegalArgumentException {
-        if (inicio != null) {
+        if (newinicio != null) {
             this.inicio = newinicio;
         } else {
             throw new IllegalArgumentException("data de inicio vazia");
@@ -57,10 +58,18 @@ public class Copa {
     }
 
    public void setFim(Data newfim) throws IllegalArgumentException {
-        if (fim != null) {
+        if (newfim != null) {
             this.fim = newfim;
         } else {
             throw new IllegalArgumentException("data de termino vazia");
+        }
+    }
+   
+   public void setCamp(int newcamp) throws IllegalArgumentException {
+        if (newcamp >= 0) {
+            this.camp = newcamp;
+        } else {
+            throw new IllegalArgumentException("equipe campea invalida");
         }
     }
 }
