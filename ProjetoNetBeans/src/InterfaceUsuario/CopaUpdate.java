@@ -4,6 +4,9 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Trabalho.Entidades.Copa;
+
 /**
  *
  * @author Vitor
@@ -39,6 +42,11 @@ public class CopaUpdate extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(400, 400));
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField5.setText("Data FIm");
 
@@ -103,7 +111,7 @@ public class CopaUpdate extends javax.swing.JPanel {
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,6 +123,25 @@ public class CopaUpdate extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int sede = Integer.parseInt((jTextField3.getText()));
+        int ano = Integer.parseInt((jTextField1.getText()));
+        int camp = Integer.parseInt((jTextField2.getText()));
+        String Data = jTextField4.getText();
+        String Data2 = jTextField5.getText();
+
+
+        Copa copa = new Copa();
+
+        copa.setAno(ano);
+        copa.setCamp(camp);
+        copa.setPais(sede);
+        copa.setInicio(Data);
+        copa.setFim(Data2);
+
+        PerCopa per = new PerCopa();
+        per.updateCopa(copa);
+    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

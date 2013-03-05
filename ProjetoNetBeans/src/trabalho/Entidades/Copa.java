@@ -15,6 +15,11 @@ public class Copa {
     private String inicio;
     private String fim;
     private int camp;
+    
+    public int getCamp()
+    {
+        return camp;
+    }
 
    public int getAno() {
         return this.ano;
@@ -31,6 +36,7 @@ public class Copa {
   public String getFim() {
         return this.fim;
         }
+  
 
    public void setAno(int newano) throws IllegalArgumentException {
         if (newano >= 1800) {
