@@ -33,8 +33,7 @@ public class PerPais {
        try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "UPDATE Paises SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + 
-                    pais.getCapital() + "bandeira=" + pais.getBandeira() + "WHERE id=" + pais.getId() + ";";
+            String query = "UPDATE Paises SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "bandeira=" + pais.getBandeira() + "WHERE id=" + pais.getId() + ";";
             stmt.executeUpdate(query);
             stmt.close();
             con.commit();
