@@ -19,12 +19,13 @@ public class PerPais {
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO Pais(id, nome, sigla, capital, bandeira)" + "VALUES(" + pais.getId() + "," + pais.getNome() + "," + "," + pais.getSigla() + "," + "," + pais.getCapital() + "," + pais.getFoto() + ");";
+            String query = "INSERT INTO Paises(nome, sigla, capital, bandeira)" + "VALUES(" + pais.getNome() + "," + "," + pais.getSigla() + "," + "," + pais.getCapital() + "," + pais.getFoto() + ");";
             stmt.executeUpdate(query);
             stmt.close();
             con.commit();
             con.close();
         }catch(SQLException e){
+            System.exit(6);
         }   
     }
 
@@ -32,7 +33,7 @@ public class PerPais {
        try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "UPDATE Pais SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "bandeira=" + pais.getFoto() + "WHERE id=" + pais.getId() + ";";
+            String query = "UPDATE Paises SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "bandeira=" + pais.getFoto() + "WHERE id=" + pais.getId() + ";";
             stmt.executeUpdate(query);
             stmt.close();
             con.commit();
@@ -47,7 +48,7 @@ public class PerPais {
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
             
-            stmt.executeUpdate("Delete FROM Pais WHERE id = " + id + ";");
+            stmt.executeUpdate("Delete FROM Paises WHERE id = " + id + ";");
             stmt.close();
         }catch(SQLException e){
             
@@ -60,7 +61,7 @@ public class PerPais {
             Connection con = BancodeDados.getConexao();
             Pais pais = new Pais();
             Statement stmt = con.createStatement();
-            String query = "SELECT * FROM Pais WHERE id=" + id + ";";
+            String query = "SELECT * FROM Paises WHERE id=" + id + ";";
             ResultSet res = stmt.executeQuery(query);
             
             if(res.next()){
@@ -87,7 +88,7 @@ public class PerPais {
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "SELECT * FROM Pais;";
+            String query = "SELECT * FROM Paises";
             ResultSet res = stmt.executeQuery(query);
             
             if(res.next()){
@@ -105,6 +106,7 @@ public class PerPais {
             return listaPais;
             
         }catch(SQLException e){
+            System.exit(5);
             return null;
         }
     }
