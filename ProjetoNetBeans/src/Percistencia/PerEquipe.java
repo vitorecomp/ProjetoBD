@@ -50,10 +50,11 @@ public class PerEquipe {
         }
     }
     
-    public Vector selectAllequipesOfpais(int id_pais){
+    public Vector<Equipe> selectAllequipesOfpais(int id_pais){
     
-            Vector listaEquipe = new Vector();
+            Vector<Equipe> listaEquipe = new Vector();
             Equipe equipe = null;
+            
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
@@ -78,8 +79,8 @@ public class PerEquipe {
         }
     }
     
-    public Vector selectAllequipesofCopa(int id_copa){
-        Vector listaEquipe = new Vector();
+    public Vector<Equipe> selectAllequipesofCopa(int id_copa){
+        Vector<Equipe> listaEquipe = new Vector();
             Equipe equipe = null;
         try{
             Connection con = BancodeDados.getConexao();
@@ -105,8 +106,8 @@ public class PerEquipe {
         }
     }
     
-    public Vector selectEquipe(int id_equipe){
-        Vector listaEquipe = new Vector();
+    public Vector<Equipe> selectEquipe(int id_equipe){
+        Vector<Equipe> listaEquipe = new Vector();
             Equipe equipe = null;
         try{
             Connection con = BancodeDados.getConexao();
@@ -132,8 +133,8 @@ public class PerEquipe {
         }
     }
     
-    public Vector selectAll(){
-        Vector listaEquipe = new Vector();
+    public Vector<Equipe> selectAll(){
+        Vector<Equipe> listaEquipe = new Vector();
             Equipe equipe = null;
         try{
             Connection con = BancodeDados.getConexao();
