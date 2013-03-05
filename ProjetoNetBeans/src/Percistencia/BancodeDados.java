@@ -14,7 +14,7 @@ public class BancodeDados {
     // Access
 
     private static String DRIVER_BD = "sun.jdbc.odbc.JdbcOdbcDriver";
-    private static String URL_BD = "jdbc:mysql://localhost:3306";
+    private static String URL_BD = "jdbc:mysql://localhost:3306/mydb";
     private static String usuario = "root";
     private static String senha = "";
     private static Connection con;
