@@ -55,8 +55,8 @@ public class PerCopa {
         if(res.next()) {
         copa.setAno(res.getInt("Ano"));
         copa.setPais(res.getInt("Pais"));
-        copa.setInicio(res.getDate("Inicio"));  
-        copa.setFim(res.getDate("Fim"));
+        //copa.setInicio(res.getDate("Inicio"));  
+        //copa.setFim(res.getDate("Fim"));
         stat.close();
         con.close();
         }
@@ -81,8 +81,8 @@ public class PerCopa {
     copa = new Copa();
     copa.setAno(res.getInt("Ano"));
     copa.setPais(res.getInt("Pais"));
-    copa.setInicio(res.getDate("Inicio"));
-    copa.setFim(res.getDate("Fim"));
+    //copa.setInicio(res.getDate("Inicio"));
+    //copa.setFim(res.getDate("Fim"));
     listaCopas.add(copa);
     }
     stmt.close();
@@ -109,8 +109,8 @@ public class PerCopa {
         copa = new Copa();
         copa.setAno(res.getInt("Ano"));
         copa.setPais(res.getInt("Pais"));
-        copa.setInicio(res.getDate("Inicio"));
-        copa.setFim(res.getDate("Fim"));
+        //copa.setInicio(res.getDate("Inicio"));
+        //copa.setFim(res.getDate("Fim"));
         listaCopas.add(copa);
     }
     stmt.close();
@@ -137,8 +137,8 @@ public class PerCopa {
     copa = new Copa();
     copa.setAno(res.getInt("Ano"));
     copa.setPais(res.getInt("Pais"));
-    copa.setInicio(res.getDate("Inicio"));
-    copa.setFim(res.getDate("Fim"));
+    //copa.setInicio(res.getDate("Inicio"));
+    //copa.setFim(res.getDate("Fim"));
     listaCopas.add(copa);
     }
     stmt.close();
@@ -163,4 +163,5 @@ public class PerCopa {
     return(0);
     }
  }
+}
 

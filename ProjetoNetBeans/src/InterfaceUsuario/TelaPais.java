@@ -10,6 +10,12 @@ package InterfaceUsuario;
  */
 public class TelaPais extends javax.swing.JPanel {
 
+    
+    public void apaga()
+    {
+        this.setVisible(false);
+    }
+    
     /**
      * Creates new form TelaCopa
      */

@@ -10,6 +10,11 @@ package InterfaceUsuario;
  */
 public class TelaGeralCopa extends javax.swing.JPanel {
 
+    public void apaga()
+    {
+        this.setVisible(false);
+    }
+    
     /**
      * Creates new form TelaGeralCopa
      */
@@ -33,7 +38,8 @@ public class TelaGeralCopa extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(300, 300));
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setPreferredSize(new java.awt.Dimension(400, 400));
 
         jTextField1.setText("jTextField1");
 
@@ -44,7 +50,7 @@ public class TelaGeralCopa extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jLabel1.setText("Digite o Ano da Copa");
+        jLabel1.setText("Digite o Id da Equipe");
 
         jLabel2.setText("Selecione a Copa");
 
@@ -60,7 +66,7 @@ public class TelaGeralCopa extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -80,7 +86,7 @@ public class TelaGeralCopa extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
