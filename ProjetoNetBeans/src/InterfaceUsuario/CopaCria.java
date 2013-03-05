@@ -4,6 +4,9 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Trabalho.Entidades.Copa;
+
 /**
  *
  * @author Vitor
@@ -38,6 +41,7 @@ public class CopaCria extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(400, 400));
 
         jTextField1.setText("Ano");
+        jTextField1.setToolTipText("Ano");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -45,6 +49,7 @@ public class CopaCria extends javax.swing.JPanel {
         });
 
         jTextField2.setText("Campeao");
+        jTextField2.setToolTipText("Campeao");
 
         jTextField3.setText("Sede");
 
@@ -60,6 +65,11 @@ public class CopaCria extends javax.swing.JPanel {
         jTextField5.setText("Data FIm");
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,6 +117,28 @@ public class CopaCria extends javax.swing.JPanel {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        int sede = Integer.parseInt((jTextField3.getText()));
+        int ano = Integer.parseInt((jTextField1.getText()));
+        int camp = Integer.parseInt((jTextField2.getText()));
+        String Data = jTextField4.getText();
+        String Data2 = jTextField5.getText();
+        
+        
+        Copa copa = new Copa();
+        
+        copa.setAno(ano);
+        copa.setCamp(camp);
+        copa.setPais(sede);
+        copa.setInicio(Data);
+        copa.setFim(Data2);
+        
+        PerCopa per = new PerCopa();
+        per.insereCopa(copa);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -10,7 +10,7 @@ public class Bolao {
 
     private int id;
     private String aposta;
-    private Data data;
+    private String data;
 
     int getId() {
         return this.id;
@@ -20,7 +20,7 @@ public class Bolao {
         return this.aposta;
     }
 
-    Data getData() {
+    String getData() {
         return this.data;
     }
 
@@ -41,7 +41,7 @@ public class Bolao {
 
     }
 
-    void setData(Data data) throws IllegalArgumentException {
+    void setData(String data) throws IllegalArgumentException {
         if (data != null) {
             this.data = data;
         } else {

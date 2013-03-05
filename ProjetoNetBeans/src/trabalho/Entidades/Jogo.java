@@ -4,12 +4,12 @@
  */
 package Trabalho.Entidades;
 
-import trabalho.TiposBasicos.Data;
+
 
 public class Jogo {
 
     private int id;
-    private Data data;
+    private String data;
     private int copa;
     private int equipe1;
     private int equipe2;
@@ -18,7 +18,7 @@ public class Jogo {
         return this.id;
     }
 
-    Data getData() {
+    String getData() {
         return this.data;
     }
 
@@ -42,7 +42,7 @@ public class Jogo {
         }
     }
 
-    void setData(Data data) throws IllegalArgumentException {
+    void setData(String data) throws IllegalArgumentException {
         if (data != null) {
             this.data = data;
         } else {

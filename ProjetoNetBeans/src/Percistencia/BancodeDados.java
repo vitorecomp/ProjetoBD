@@ -14,8 +14,8 @@ public class BancodeDados {
     // Access
 
     private static String DRIVER_BD = "sun.jdbc.odbc.JdbcOdbcDriver";
-    private static String URL_BD = "jdbc:mysql://localhost";
-    private static String usuario = "";
+    private static String URL_BD = "jdbc:mysql://localhost:3306";
+    private static String usuario = "root";
     private static String senha = "";
     private static Connection con;
 
@@ -23,7 +23,7 @@ public class BancodeDados {
         try {
             Class.forName(DRIVER_BD);
         } catch (ClassNotFoundException e) {
-            System.out.println("Problemas ao carregar o driver");
+            System.exit(3);
         }
     }
 
@@ -34,6 +34,7 @@ public class BancodeDados {
             }
         } catch (SQLException e) {
             System.out.println("Problemas ao abrir a conexao com o BD");
+            System.exit(4);
         }
         return con;
     }

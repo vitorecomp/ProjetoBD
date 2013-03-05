@@ -10,7 +10,7 @@ public class Integrante {
 
     private int id;
     private String nome;
-    private Data dataNasc;
+    private String dataNasc;
     private Foto foto;
 
     int getId() {
@@ -21,7 +21,7 @@ public class Integrante {
         return this.nome;
     }
 
-    Data getDatanasc() {
+    String getDatanasc() {
         return this.dataNasc;
     }
 
@@ -45,7 +45,7 @@ public class Integrante {
         }
     }
 
-    void setDataNasc(Data dataNasc) throws IllegalArgumentException {
+    void setDataNasc(String dataNasc) throws IllegalArgumentException {
         if (dataNasc != null) {
             this.dataNasc = dataNasc;
         } else {

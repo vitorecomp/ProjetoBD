@@ -4,13 +4,13 @@
  */
 package Trabalho.Entidades;
 
-import trabalho.TiposBasicos.Data;
+
 
 public class Pessoa {
 
     private int id;
     private String nome;
-    private Data datanasc;
+    private String datanasc;
 
     int getId() {
         return this.id;
@@ -20,7 +20,7 @@ public class Pessoa {
         return this.nome;
     }
 
-    Data getData() {
+    String getData() {
         return this.datanasc;
     }
     
@@ -40,7 +40,7 @@ public class Pessoa {
         }
     }
     
-    void setData(Data dataNasc) throws IllegalArgumentException {
+    void setData(String dataNasc) throws IllegalArgumentException {
         if (dataNasc != null) {
             this.datanasc = dataNasc;
         } else {

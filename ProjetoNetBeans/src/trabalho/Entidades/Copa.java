@@ -4,7 +4,6 @@
  */
 package Trabalho.Entidades;
 
-import trabalho.TiposBasicos.Data;
 
 public class Copa {
 
@@ -13,8 +12,8 @@ public class Copa {
     
     private int ano;
     private int pais;
-    private Data inicio;
-    private Data fim;
+    private String inicio;
+    private String fim;
     private int camp;
 
    public int getAno() {
@@ -25,11 +24,11 @@ public class Copa {
         return this.pais;
         }
 
-  public Data getInicio() {
+  public String getInicio() {
         return this.inicio;
         }
 
-  public Data getFim() {
+  public String getFim() {
         return this.fim;
         }
 
@@ -49,7 +48,7 @@ public class Copa {
         }
     }
 
-   public void setInicio(Data newinicio) throws IllegalArgumentException {
+   public void setInicio(String newinicio) throws IllegalArgumentException {
         if (newinicio != null) {
             this.inicio = newinicio;
         } else {
@@ -57,7 +56,7 @@ public class Copa {
         }
     }
 
-   public void setFim(Data newfim) throws IllegalArgumentException {
+   public void setFim(String newfim) throws IllegalArgumentException {
         if (newfim != null) {
             this.fim = newfim;
         } else {

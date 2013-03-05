@@ -4,17 +4,42 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Trabalho.Entidades.Copa;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vitor
  */
 public class CopaDeleta extends javax.swing.JPanel {
 
+    private DefaultListModel lista = new DefaultListModel();  
+    
+    void initializeList() {
+        
+        PerCopa copa = new PerCopa();
+        Copa varCopa;
+        Vector<Copa> time;
+        time = copa.selecionaTodasCopas();
+        while (!time.isEmpty()) {
+            varCopa = time.remove(1);
+            lista.addElement(varCopa.getAno());
+            
+        }
+        jList1.setModel(lista);
+        
+
+    }
+
     /**
      * Creates new form CopaDeleta
      */
     public CopaDeleta() {
+
         initComponents();
+        initializeList();
     }
 
     /**
@@ -101,7 +126,6 @@ public class CopaDeleta extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
