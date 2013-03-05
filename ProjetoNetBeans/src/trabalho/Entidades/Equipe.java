@@ -12,50 +12,36 @@ public class Equipe {
     private int copa;
 
     public int getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getTreinador() {
-        return this.treinador;
+        return treinador;
+    }
+
+    public void setTreinador(int treinador) {
+        this.treinador = treinador;
     }
 
     public int getPais() {
-        return this.pais;
+        return pais;
+    }
+
+    public void setPais(int pais) {
+        this.pais = pais;
     }
 
     public int getCopa() {
-        return this.copa;
+        return copa;
     }
 
-    public void setId(int id) throws IllegalArgumentException {
-        if (id >= 0) {
-            this.id = id;
-        } else {
-            throw new IllegalArgumentException("id invalido");
-        }
+    public void setCopa(int copa) {
+        this.copa = copa;
     }
 
-    public void setTreinador(int treinador) throws IllegalArgumentException {
-        if (treinador >= 0) {
-            this.treinador = treinador;
-        } else {
-            throw new IllegalArgumentException("id do treinador invalido");
-        }
-    }
-
-    public void setPais(int pais) throws IllegalArgumentException {
-        if (pais >= 0) {
-            this.pais = pais;
-        } else {
-            throw new IllegalArgumentException("pais invalido");
-        }
-    }
-
-    public void setCopa(int copa) throws IllegalArgumentException {
-        if (copa >= 1800) {
-            this.copa = copa;
-        } else {
-            throw new IllegalArgumentException("copa invalida");
-        }
-    }
+   
 }

@@ -15,62 +15,44 @@ public class Pais {
     private String bandeira;
 
     public int getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSigla() {
-        return this.sigla;
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
     public String getCapital() {
-        return this.capital;
+        return capital;
     }
 
-    public String getFoto() {
-        return this.bandeira;
+    public void setCapital(String capital) {
+        this.capital = capital;
     }
 
-    public void setId(int id) throws IllegalArgumentException {
-        if (id >= 0) {
-            this.id = id;
-        } else {
-            //throw new IllegalArgumentException("id invalido");
-        }
+    public String getBandeira() {
+        return bandeira;
     }
 
-    public void setNome(String nome) throws IllegalArgumentException {
-        if (nome.length() <= 45) {
-            this.nome = nome;
-        } else {
-            //throw new IllegalArgumentException("nome invalido");
-        }
+    public void setBandeira(String bandeira) {
+        this.bandeira = bandeira;
     }
 
-    public void setSigla(String sigla) throws IllegalArgumentException {
-        if (sigla.length() <= 3) {
-            this.sigla = sigla;
-        } else {
-            //throw new IllegalArgumentException("sigla invalida");
-        }
-    }
-
-    public void setCapital(String Capital) throws IllegalArgumentException {
-        if (capital.length() <= 45) {
-            this.capital = capital;
-        } else {
-            // new IllegalArgumentException("capital invalida");
-        }
-    }
-
-    public void setFoto(String foto) throws IllegalArgumentException {
-        if (foto != null) {
-            this.bandeira = foto;
-        } else {
-            //throw new IllegalArgumentException("bandeira invalida");
-        }
-    }
+    
 }

@@ -7,74 +7,55 @@ package Trabalho.Entidades;
 
 public class Copa {
 
-    public Copa(){
-    }   
-    
     private int ano;
     private int pais;
     private String inicio;
     private String fim;
     private int camp;
     
-    public int getCamp()
-    {
+    
+    public Copa(){
+    }   
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public int getPais() {
+        return pais;
+    }
+
+    public void setPais(int pais) {
+        this.pais = pais;
+    }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getFim() {
+        return fim;
+    }
+
+    public void setFim(String fim) {
+        this.fim = fim;
+    }
+
+    public int getCamp() {
         return camp;
     }
 
-   public int getAno() {
-        return this.ano;
-        }
-
-   public int getPais() {
-        return this.pais;
-        }
-
-  public String getInicio() {
-        return this.inicio;
-        }
-
-  public String getFim() {
-        return this.fim;
-        }
-  
-
-   public void setAno(int newano) throws IllegalArgumentException {
-        if (newano >= 1800) {
-            this.ano = newano;
-        } else {
-            throw new IllegalArgumentException("ano invalido");
-        }
+    public void setCamp(int camp) {
+        this.camp = camp;
     }
+    
 
-   public void setPais(int newpais) throws IllegalArgumentException {
-        if (newpais >= 0) {
-            this.pais = newpais;
-        } else {
-            throw new IllegalArgumentException("pais invalido");
-        }
-    }
-
-   public void setInicio(String newinicio) throws IllegalArgumentException {
-        if (newinicio != null) {
-            this.inicio = newinicio;
-        } else {
-            throw new IllegalArgumentException("data de inicio vazia");
-        }
-    }
-
-   public void setFim(String newfim) throws IllegalArgumentException {
-        if (newfim != null) {
-            this.fim = newfim;
-        } else {
-            throw new IllegalArgumentException("data de termino vazia");
-        }
-    }
-   
-   public void setCamp(int newcamp) throws IllegalArgumentException {
-        if (newcamp >= 0) {
-            this.camp = newcamp;
-        } else {
-            throw new IllegalArgumentException("equipe campea invalida");
-        }
-    }
 }
