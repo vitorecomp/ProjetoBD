@@ -106,8 +106,8 @@ public class PerEquipe {
         }
     }
     
-    public Vector<Equipe> selectEquipe(int id_equipe){
-        Vector<Equipe> listaEquipe = new Vector();
+    public Equipe selectEquipe(int id_equipe){
+        
             Equipe equipe = null;
         try{
             Connection con = BancodeDados.getConexao();
@@ -121,12 +121,12 @@ public class PerEquipe {
                 equipe.setCopa(res.getInt("idCopa"));
                 equipe.setTreinador(res.getInt("idTreinador"));
                 equipe.setPais(res.getInt("idPais"));
-                listaEquipe.add(equipe);
+        
             }
             stmt.close();
             con.close();
             
-            return listaEquipe;
+            return equipe;
             
         }catch(SQLException e){
             return null;

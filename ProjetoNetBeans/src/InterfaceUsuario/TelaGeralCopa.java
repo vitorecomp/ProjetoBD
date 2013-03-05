@@ -147,7 +147,6 @@ public class TelaGeralCopa extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //botao da lista
-        PerCopa copa = new PerCopa();
         int selected = Integer.parseInt(jList1.getSelectedValue().toString());
         new TelaCopaF(selected).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
