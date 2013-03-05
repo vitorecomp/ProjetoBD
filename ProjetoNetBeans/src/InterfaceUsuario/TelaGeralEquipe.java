@@ -23,7 +23,7 @@ private DefaultListModel lista = new DefaultListModel();
         Vector<Equipe> time;
         time = copa.selectAll();
         while (!time.isEmpty()) {
-            varEquipe = time.remove(1);
+            varEquipe = time.remove(0);
             lista.addElement(varEquipe.getId());
 
         }

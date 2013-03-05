@@ -93,7 +93,7 @@ public class PerPais {
             
             if(res.next()){
                 pais = new Pais();
-                pais.setId(res.getInt("id"));
+                pais.setId(res.getInt("idPais"));
                 pais.setNome(res.getString("nome"));
                 pais.setSigla(res.getString("sigla"));
                 pais.setCapital(res.getString("capital"));
