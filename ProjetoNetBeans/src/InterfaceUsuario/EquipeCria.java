@@ -4,6 +4,11 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Percistencia.PerEquipe;
+import Trabalho.Entidades.Copa;
+import Trabalho.Entidades.Equipe;
+
 /**
  *
  * @author Vitor
@@ -36,6 +41,11 @@ public class EquipeCria extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(400, 400));
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField3.setText("Copa");
 
@@ -83,8 +93,24 @@ public class EquipeCria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                
+        int id = Integer.parseInt((jTextField1.getText()));
+        int pais = Integer.parseInt((jTextField2.getText()));
+        int copa2 = Integer.parseInt((jTextField3.getText()));
+
+        Equipe copa = new Equipe();
+        
+        copa.setTreinador(id);
+        copa.setCopa(copa2);
+        copa.setPais(pais);
+        
+        PerEquipe per = new PerEquipe();
+        per.create(copa);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

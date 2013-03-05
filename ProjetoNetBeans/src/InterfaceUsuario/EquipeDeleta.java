@@ -4,17 +4,40 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Percistencia.PerEquipe;
+import Trabalho.Entidades.Copa;
+import Trabalho.Entidades.Equipe;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vitor
  */
 public class EquipeDeleta extends javax.swing.JPanel {
 
+    private DefaultListModel lista = new DefaultListModel();
+
+    void initialize() {
+        PerEquipe copa = new PerEquipe();
+        Equipe varEquipe;
+        Vector<Equipe> time;
+        time = copa.selectAll();
+        while (!time.isEmpty()) {
+            varEquipe = time.remove(1);
+            lista.addElement(varEquipe.getId());
+
+        }
+        jList1.setModel(lista);
+    }
+
     /**
      * Creates new form EquipeDeleta
      */
     public EquipeDeleta() {
         initComponents();
+        initialize();
     }
 
     /**
@@ -77,9 +100,10 @@ public class EquipeDeleta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        PerEquipe equipe = new PerEquipe();
+        int selected = Integer.parseInt(jList1.getSelectedValue().toString());
+        equipe.delete(selected);
     }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

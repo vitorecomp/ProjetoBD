@@ -4,17 +4,39 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerEquipe;
+import Trabalho.Entidades.Equipe;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vitor
  */
 public class EquipeUpdate extends javax.swing.JPanel {
 
+    
+    private DefaultListModel lista = new DefaultListModel();
+
+    void initialize() {
+        PerEquipe copa = new PerEquipe();
+        Equipe varEquipe;
+        Vector<Equipe> time;
+        time = copa.selectAll();
+        while (!time.isEmpty()) {
+            varEquipe = time.remove(1);
+            lista.addElement(varEquipe.getId());
+
+        }
+        jList1.setModel(lista);
+    }
+
     /**
      * Creates new form EquipeUpdate
      */
     public EquipeUpdate() {
         initComponents();
+        initialize();
     }
 
     /**
@@ -105,7 +127,22 @@ public class EquipeUpdate extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        PerEquipe equipe = new PerEquipe();
+        int selected = Integer.parseInt(jList1.getSelectedValue().toString());
+        
+        int id = Integer.parseInt((jTextField1.getText()));
+        int pais = Integer.parseInt((jTextField2.getText()));
+        int copa2 = Integer.parseInt((jTextField3.getText()));
+
+        Equipe copa = new Equipe();
+        
+        copa.setId(selected);
+        copa.setTreinador(id);
+        copa.setCopa(copa2);
+        copa.setPais(pais);
+        
+        PerEquipe per = new PerEquipe();
+        per.update(copa);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
