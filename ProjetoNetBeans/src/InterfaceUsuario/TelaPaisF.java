@@ -13,7 +13,7 @@ public class TelaPaisF extends javax.swing.JFrame {
     /**
      * Creates new form TelaPaisF
      */
-    public TelaPaisF() {
+    public TelaPaisF(int valor) {
         initComponents();
     }
 

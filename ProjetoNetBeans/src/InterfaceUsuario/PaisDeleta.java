@@ -7,10 +7,18 @@ package InterfaceUsuario;
 import Percistencia.PerCopa;
 import Percistencia.PerPais;
 import Trabalho.Entidades.Copa;
+import Trabalho.Entidades.Pais;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 
 
+/**
+ *
+ * @author Vitor
+ */
+public class PaisDeleta extends javax.swing.JPanel {
+
+    
     private DefaultListModel lista = new DefaultListModel();  
     
     void initializeList() {
@@ -18,20 +26,14 @@ import javax.swing.DefaultListModel;
         PerPais copa = new PerPais();
         Pais varCopa;
         Vector<Pais> time;
-        time = copa.selecionaTodasCopas();
+        time = copa.selectAll();
         while (!time.isEmpty()) {
             varCopa = time.remove(1);
-            lista.addElement(varCopa.getAno());
+            lista.addElement(varCopa.getId());
             
         }
         jList1.setModel(lista);
     }
-/**
- *
- * @author Vitor
- */
-public class PaisDeleta extends javax.swing.JPanel {
-
     /**
      * Creates new form PaisDeleta
      */

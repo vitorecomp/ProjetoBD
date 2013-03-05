@@ -4,17 +4,39 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerPais;
+import Trabalho.Entidades.Pais;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vitor
  */
 public class PaisUpdate extends javax.swing.JPanel {
 
+    private DefaultListModel lista = new DefaultListModel();
+
+    void initialize() {
+
+        PerPais copa = new PerPais();
+        Pais varCopa;
+        Vector<Pais> time;
+        time = copa.selectAll();
+        while (!time.isEmpty()) {
+            varCopa = time.remove(1);
+            lista.addElement(varCopa.getId());
+
+        }
+        jList1.setModel(lista);
+    }
+
     /**
      * Creates new form PaisUpdate
      */
     public PaisUpdate() {
         initComponents();
+        initialize();
     }
 
     /**
@@ -63,6 +85,11 @@ public class PaisUpdate extends javax.swing.JPanel {
         });
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -130,6 +157,25 @@ public class PaisUpdate extends javax.swing.JPanel {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        int selected = Integer.parseInt(jList1.getSelectedValue().toString());
+                 
+        String nome = jTextField1.getText();
+        String sigla = jTextField2.getText();
+        String capital = jTextField3.getText();
+        String endimg = jTextField4.getText();
+
+        Pais copa = new Pais();
+        copa.setCapital(capital);
+        copa.setId(selected);
+        copa.setNome(nome);
+        copa.setSigla(sigla);
+        
+        PerPais per = new PerPais();
+        per.inserePais(copa);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
