@@ -4,6 +4,28 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerCopa;
+import Percistencia.PerPais;
+import Trabalho.Entidades.Copa;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
+
+    private DefaultListModel lista = new DefaultListModel();  
+    
+    void initializeList() {
+        
+        PerPais copa = new PerPais();
+        Pais varCopa;
+        Vector<Pais> time;
+        time = copa.selecionaTodasCopas();
+        while (!time.isEmpty()) {
+            varCopa = time.remove(1);
+            lista.addElement(varCopa.getAno());
+            
+        }
+        jList1.setModel(lista);
+    }
 /**
  *
  * @author Vitor
@@ -15,6 +37,7 @@ public class PaisDeleta extends javax.swing.JPanel {
      */
     public PaisDeleta() {
         initComponents();
+        initializeList();
     }
 
     /**
@@ -77,7 +100,9 @@ public class PaisDeleta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        PerPais copa = new PerPais();
+        int selected = Integer.parseInt(jList1.getSelectedValue().toString());
+        copa.deletePais(selected);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

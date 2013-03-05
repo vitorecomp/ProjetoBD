@@ -4,6 +4,10 @@
  */
 package InterfaceUsuario;
 
+import Percistencia.PerEquipe;
+import Trabalho.Entidades.Equipe;
+import Trabalho.Entidades.Pais;
+
 /**
  *
  * @author Vitor
@@ -38,6 +42,11 @@ public class PaisCria extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(400, 400));
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField4.setText("c:/user/bandbr.png");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -102,12 +111,29 @@ public class PaisCria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+        
+       
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         String nome = jTextField1.getText();
+        String sigla = jTextField2.getText();
+        String capital = jTextField3.getText();
+        String endimg = jTextField4.getText();
+
+        Pais copa = new Pais();
+        copa.setCapital(capital);
+        
+        copa.setNome(nome);
+        copa.setSigla(sigla);
+        
+        PerPais per = new PerPais();
+        per.inserePais(copa);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

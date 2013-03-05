@@ -12,7 +12,7 @@ public class Pais {
     private String nome;
     private String sigla;
     private String capital;
-    private Foto bandeira;
+    private String bandeira;
 
     public int getId() {
         return this.id;
@@ -30,7 +30,7 @@ public class Pais {
         return this.capital;
     }
 
-    public Foto getFoto() {
+    public String getFoto() {
         return this.bandeira;
     }
 
@@ -66,7 +66,7 @@ public class Pais {
         }
     }
 
-    public void setFoto(Foto foto) throws IllegalArgumentException {
+    public void setFoto(String foto) throws IllegalArgumentException {
         if (foto != null) {
             this.bandeira = foto;
         } else {
