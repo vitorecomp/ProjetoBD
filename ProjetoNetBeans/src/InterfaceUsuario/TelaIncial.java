@@ -4,6 +4,8 @@
  */
 package InterfaceUsuario;
 
+import javax.swing.UIManager;
+
 /**
  *
  * @author Vitor
@@ -388,6 +390,12 @@ public class TelaIncial extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         System.out.println("Rodo");
+          try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (Exception e) {
+            System.out.println("Substance Raven Graphite failed to initialize");
+            e.printStackTrace();
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

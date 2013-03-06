@@ -131,6 +131,7 @@ public class PaisCria extends javax.swing.JPanel {
         
         copa.setNome(nome);
         copa.setSigla(sigla);
+        copa.setCapital(capital);
         
         PerPais per = new PerPais();
         per.inserePais(copa);
