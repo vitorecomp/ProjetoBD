@@ -2,7 +2,7 @@
 1. SELECT Paises.Nome, Integrantes.Nome  FROM Paises, Equipe, Copa , Equipe_has_Integrantes, Integrantes 
 WHERE Paises.idPais = Paises.Paises_idPais AND  Equipe.idEquipe = Equipe.Equipe_idEquipe AND Equipe_has_Integrantes.idIntegrantes = Equipe_has_Integrantes.Integrantes_idIntegrantes AND Equipe.Copa_ano = 1994 AND Paises.Nome = "França";
 
-2.SELECT Paises.Nome FROM Paises, Equipes, Jogos WHERE Jogos.Copa_ano = 2002 AND Data = "14/06/2002" AND Equipe_idEquipe = idEuipe AND Equipe_idEquipe1 = idEquipe;
+2.SELECT Paises.Nome FROM Paises, Equipes, Jogos WHERE Jogos.Copa_ano = 2002 AND Data = "14/06/2002" AND Equipe_idEquipe = idEquipe AND Equipe_idEquipe1 = idEquipe;
 
 3. SELECT COUNT(*) FROM Paises, Equipes, Jogos, Gols WHERE Jogos.Copa_ano = 1900 AND Data = "07/06/1900" AND Equipe_idEquipe = idEuipe AND Equipe_idEquipe1 = idEquipe AND Jogos.idJogos = Gols.Jogos_idJogos;
 

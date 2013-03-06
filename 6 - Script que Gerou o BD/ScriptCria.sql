@@ -1,43 +1,13 @@
-DROP TABLE IF EXISTS Estadio;
-DROP TABLE IF EXISTS Pais;
-DROP TABLE IF EXISTS Bolao;
-DROP TABLE IF EXISTS Gol;
-DROP TABLE IF EXISTS Pessoa;
-DROP TABLE IF EXISTS Bolao_has_Pessoa;
-DROP TABLE IF EXISTS Integrante;
-DROP TABLE IF EXISTS Pessoas_has_Torcida;
-DROP TABLE IF EXISTS Cartao;
-DROP TABLE IF EXISTS Integrantes_has_Cartao;
-DROP TABLE IF EXISTS Torcida;
-DROP TABLE IF EXISTS Copa;
-DROP TABLE IF EXISTS Integrante_has_Gol;
-DROP TABLE IF EXISTS Torcida_has_Copa;
-DROP TABLE IF EXISTS Equipe;
-DROP TABLE IF EXISTS Jogos;
-DROP TABLE IF EXISTS Equipe_has_Integrante
-DROP TABLE IF EXISTS Jogo_has_Bolao;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
---ver do sql 
-
-	--der uma olhada se um long int nao nos satizfaz na capacidade do estadio
-
---perguntas
-	--nao seria legal integrante ser um pessoa
-	--presidente nao poderia ser uma relaçao com pessoa
-	--e mais interessante um reelaçao 2:n que acabaria exigindo uma nova tabela
-	--sera que nao seria interessante uma relaçao de nacionalidade com pais
-	--como fazer a relaçao de capial
-	--nas fotos temos que armazenar que postou
-
---com o grupo
-	--nao pressisamos de tempo do gol com atributo no mr
-	--campeao na copa um equipe ou um pais
-	--temos que repensar algumas tables fracas
-	
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `mydb` ;
 
 
---ok
-CREATE TABLE Pais
+
+CREATE  TABLE IF NOT EXISTS Pais
 	(
 		idPais INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		Nome varchar(45) NOT NULL,
@@ -46,36 +16,7 @@ CREATE TABLE Pais
 		Bandeira BLOB
 	);
 
---ok
-CREATE TABLE Estadio
-	(
-		idEstadio INTEGER USIGNED PRIMARY KEY AUTO_INCREMENT,
-		idPais references Pais(idPais),
-		Cidade varchar(65) NOT NULL,
-		Capacidade LONG INT UNSIGNED NOT NULL,
-		Nome varchar(45) NOT NULL
-	);
-
---ok
-CREATE TABLE Bolao 
-	(
-		idBolao INTEGER UNSIGNED PRIMARY kEY AUTO_INCREMENT,
-		Aposta varchar(45) NOT NULL,
-		data DATE NOT NULL
-	);
-
-
-CREATE TABLE Pessoa
-	(
-		idPessoa  INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-		Nome varchar(45) NOT NULL,
-		Nacionalidade varchar(45) NOT NULL,
-		Data_Nasc date NOT NULL,
-
-	);
-
-
-CREATE TABLE Integrante
+CREATE  TABLE IF NOT EXISTS Integrante
 	(
 		idIntegrante INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 		Nome varchar(45) NOT NULL,
@@ -84,107 +25,133 @@ CREATE TABLE Integrante
 		Foto BLOB
 	);
 
+CREATE  TABLE IF NOT EXISTS Estadio
+	(
+		idEstadio INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+		idPais INTEGER REFERENCES Pais(idPais),
+		Cidade varchar(65) NOT NULL,
+		Capacidade BIGINT NOT NULL,
+		Nome varchar(45) NOT NULL
+	);
 
 
-CREATE TABLE Torcida 
+CREATE  TABLE IF NOT EXISTS Bolao 
+	(
+		idBolao INTEGER UNSIGNED PRIMARY kEY AUTO_INCREMENT,
+		Aposta varchar(45) NOT NULL,
+		data DATE NOT NULL
+	);
+
+
+CREATE  TABLE IF NOT EXISTS Pessoa
+	(
+		idPessoa  INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+		Nome varchar(45) NOT NULL,
+		Nacionalidade varchar(45) NOT NULL,
+		Data_Nasc date NOT NULL
+
+	);
+
+
+CREATE  TABLE IF NOT EXISTS Torcida 
 	(
 		idTorcida INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-		idPais references Pais(idPais) NOT NULL,
+		idPais INTEGER references Pais(idPais),
 		Foto BLOB,
-		Presidente  VARCHAR(45) NOT NULL;
+		Presidente  VARCHAR(45) NOT NULL
 	);
 
---ok
 
-CREATE TABLE Copa
+
+CREATE  TABLE IF NOT EXISTS Copa
 	(
 		Ano INTEGER UNSIGNED PRIMARY KEY,
-		idPais references Pais(idPais),
+		idPais INTEGER references Pais(idPais),
 		dataIni DATE NOT NULL,
-		dataFim DATE NOT NULL
-		Camp references Pais(idPais),
+		dataFim DATE NOT NULL,
+		Camp INTEGER references Pais(idPais)
 
 	);
 
---ok
-CREATE TABLE Equipe
+
+CREATE  TABLE IF NOT EXISTS Equipe
 	(
 		idEquipe INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
-		idTreinador references Integrante(idIntegrante),
-		idPais references Pais(idPais)
-		idCopa references Copa(Ano)
+		idTreinador INTEGER references Integrante(idIntegrante),
+		idPais INTEGER references Pais(idPais),
+		idCopa INTEGER references Copa(Ano)
 	);
 
 
 
-CREATE TABLE Jogo
+CREATE  TABLE IF NOT EXISTS Jogo
 	(
 		idJogo INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
 		data DATE,
-		Copa references Copa(Ano),
-		Equipe1 references Equipe(idEquipe),
-		Equipe2 references Equipe(idEquipe)
+		Copa INTEGER references Copa(Ano),
+		Equipe1 INTEGER references Equipe(idEquipe),
+		Equipe2 INTEGER references Equipe(idEquipe)
 	);
 
 
-CREATE TABLE Gol
+CREATE  TABLE IF NOT EXISTS Gol
 	(
 		idGol INTEGER UNSIGNED PRIMARY kEY AUTO_INCREMENT,
-		Jogo references Jogo(idJogo),
-		Autor references Integrante(idIntegrante),
+		Jogo INTEGER references Jogo(idJogo),
+		Autor INTEGER references Integrante(idIntegrante),
 		Relogio TIME
 
 	);
 
---ok
-CREATE TABLE Cartao
+
+CREATE  TABLE IF NOT EXISTS Cartao
 	(
 		idCartao INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-		Jogo references Jogo(idJogo),
-		Integrante references Integrante(idIntegrante),
+		Jogo INTEGER references Jogo(idJogo),
+		Integrante INTEGER references Integrante(idIntegrante),
 		Tipo char NOT NULL,
 		Relogio TIME
 	);
 
---Tabelas de Ligaçao
-CREATE TABLE Bolao_has_Pessoa
+
+CREATE  TABLE IF NOT EXISTS Bolao_has_Pessoa
 	(
-		idBolao references Bolao(idBolao),
-		idPessoa references Pessoa(idPessoa)
+		idBolao INTEGER references Bolao(idBolao),
+		idPessoa INTEGER references Pessoa(idPessoa)
 	);
 
-CREATE TABLE Equipe_has_Integrante
+CREATE  TABLE IF NOT EXISTS Equipe_has_Integrante
 	(
-		idEquipe references Equipe(idEquipe),
-		idIntegrante references Integrante(idIntegrante)
+		idEquipe INTEGER references Equipe(idEquipe),
+		idIntegrante INTEGER references Integrante(idIntegrante)
 	);
 
-CREATE TABLE Integrante_has_Cartao
+CREATE  TABLE IF NOT EXISTS Integrante_has_Cartao
 	(
-		idIntegrante references Integrante(idIntegrante),
-		idCartao references Cartao(idCartao)
+		idIntegrante INTEGER references Integrante(idIntegrante),
+		idCartao INTEGER references Cartao(idCartao)
 	);
 
-CREATE TABLE Integrante_has_Gol
+CREATE  TABLE IF NOT EXISTS Integrante_has_Gol
 	(
-		idIntegrante references Integrante(idIntegrante),
-		idGol references Gol(idGol)
+		idIntegrante INTEGER references Integrante(idIntegrante),
+		idGol INTEGER references Gol(idGol)
 	);
 
-CREATE TABLE Torcida_has_Copa
+CREATE  TABLE IF NOT EXISTS Torcida_has_Copa
 	(
-		idTorcida references Torcida(idTorcida), 
-		idCopa references Copa(Ano)
+		idTorcida INTEGER references Torcida(idTorcida), 
+		idCopa INTEGER references Copa(Ano)
 	);
 
-CREATE TABLE Jogo_has_Bolao
+CREATE  TABLE IF NOT EXISTS Jogo_has_Bolao
 	(
-		idJogo references Jogo(idJogo), 
-		idBolao references Bolao(idBolao)
+		idJogo INTEGER references Jogo(idJogo), 
+		idBolao INTEGER references Bolao(idBolao)
 	);
 
-CREATE TABLE Pessoas_has_Torcida
+CREATE  TABLE IF NOT EXISTS Pessoas_has_Torcida
 	(
-		idPessoa references Pessoa(idPessoa),
-		idTorcida references Torcida(idTorcida)
+		idPessoa INTEGER references Pessoa(idPessoa),
+		idTorcida INTEGER references Torcida(idTorcida)
 	);

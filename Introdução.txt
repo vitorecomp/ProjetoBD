@@ -1,0 +1,5 @@
+Este projeto tem, como objetivo, colocar em pratica conceitos aprendidos em aula necessários para se criar um banco de dados eficiente.
+
+Foi escolhido como tema "Copa do mundo". No BD, é necessário guardar informações dos jogadores e técnicos que compõem as equipes, informações destas equipes como o país que elas estão representando, dos jogos, gols e cartões, destes serão guardados também seus respectivos momentos de quando ocorreram, dentre outros que serão demonstrados no projeto.
+
+Na camada de persistência, foram usadas as tabelas Copa, Equipe e Pais, foi criada uma persistência para cada e uma interface para estas.
