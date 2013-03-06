@@ -24,7 +24,7 @@ public class EquipeUpdate extends javax.swing.JPanel {
         Vector<Equipe> time;
         time = copa.selectAll();
         while (!time.isEmpty()) {
-            varEquipe = time.remove(1);
+            varEquipe = time.remove(0);
             lista.addElement(varEquipe.getId());
 
         }
@@ -74,6 +74,11 @@ public class EquipeUpdate extends javax.swing.JPanel {
         jTextField3.setText("Copa");
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Selecione o equipe ");
 
@@ -127,7 +132,11 @@ public class EquipeUpdate extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        PerEquipe equipe = new PerEquipe();
+       
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  PerEquipe equipe = new PerEquipe();
         int selected = Integer.parseInt(jList1.getSelectedValue().toString());
         
         int id = Integer.parseInt((jTextField1.getText()));
@@ -143,7 +152,7 @@ public class EquipeUpdate extends javax.swing.JPanel {
         
         PerEquipe per = new PerEquipe();
         per.update(copa);
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

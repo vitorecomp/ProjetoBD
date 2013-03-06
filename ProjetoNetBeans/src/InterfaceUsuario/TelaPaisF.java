@@ -19,17 +19,21 @@ public class TelaPaisF extends javax.swing.JFrame {
      * Creates new form TelaPaisF
      */
     private int valor;
-        void este(){
+
+    void este() {
         PerPais copa = new PerPais();
         Pais copa2 = copa.selectPais(valor);
-        
-        jLabel8.setText(Integer.toString(copa2.getId()));
-        jLabel6.setText(copa2.getNome());
-        jLabel7.setText(copa2.getSigla());
-        jLabel9.setText(copa2.getCapital());
+        if (copa2 != null) {
+
+            jLabel8.setText(Integer.toString(copa2.getId()));
+            jLabel6.setText(copa2.getNome());
+            jLabel7.setText(copa2.getSigla());
+            jLabel9.setText(copa2.getCapital());
+        }
         //jLabel8.setText(copa2.getFoto());
-        
+
     }
+
     public TelaPaisF(int valor) {
         this.valor = valor;
         initComponents();

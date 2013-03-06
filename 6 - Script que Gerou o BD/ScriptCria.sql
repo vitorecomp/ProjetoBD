@@ -17,25 +17,6 @@ DROP TABLE IF EXISTS Jogos;
 DROP TABLE IF EXISTS Equipe_has_Integrante
 DROP TABLE IF EXISTS Jogo_has_Bolao;
 
---ver do sql 
-
-	--der uma olhada se um long int nao nos satizfaz na capacidade do estadio
-
---perguntas
-	--nao seria legal integrante ser um pessoa
-	--presidente nao poderia ser uma relaçao com pessoa
-	--e mais interessante um reelaçao 2:n que acabaria exigindo uma nova tabela
-	--sera que nao seria interessante uma relaçao de nacionalidade com pais
-	--como fazer a relaçao de capial
-	--nas fotos temos que armazenar que postou
-
---com o grupo
-	--nao pressisamos de tempo do gol com atributo no mr
-	--campeao na copa um equipe ou um pais
-	--temos que repensar algumas tables fracas
-	
-
-
 --ok
 CREATE TABLE Pais
 	(

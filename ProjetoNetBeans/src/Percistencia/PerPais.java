@@ -19,13 +19,14 @@ public class PerPais {
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "insert into Integrantes(idIntegrantes, Nome, Nacionalidade, Pais_Nasc) values (1, 'Pierre', 'Frances', 'França');";
+            String query = "INSERT INTO PAIS(nome, sigla, capital) VALUES ('"+pais.getNome()+"', '"+pais.getSigla()+
+                    "', '"+pais.getCapital()+"');";
             stmt.executeUpdate(query);
             stmt.close();
-            con.commit();
             con.close();
         }catch(SQLException e){
-            System.exit(6);
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(21);
         }   
     }
 
@@ -33,13 +34,14 @@ public class PerPais {
        try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "UPDATE Paises SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "bandeira=" + pais.getBandeira() + "WHERE id=" + pais.getId() + ";";
+            String query = "UPDATE Paises SET nome=" + pais.getNome() + ",sigla=" + pais.getSigla() + ", capital=" + pais.getCapital() + "WHERE idPais=" + pais.getId() + ";";
             stmt.executeUpdate(query);
             stmt.close();
             con.commit();
             con.close();
         }catch(SQLException e){
-            
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(22);
         }
   }
     
@@ -48,25 +50,28 @@ public class PerPais {
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
             
-            stmt.executeUpdate("Delete FROM Paises WHERE id = " + id + ";");
+            stmt.executeUpdate("Delete FROM Pais WHERE idPais = " + id + ";");
             stmt.close();
+            con.close();
         }catch(SQLException e){
-            
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(23);
         }
     }
     
     public Pais selectPais(int id){
         
+        Pais pais = null;
         try{
             Connection con = BancodeDados.getConexao();
-            Pais pais = new Pais();
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM Paises WHERE id=" + id + ";";
-            ResultSet res = stmt.executeQuery(query);
             
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM Pais WHERE idPais=" + id + ";";
+            ResultSet res = stmt.executeQuery(query);
+            pais = new Pais();
             if(res.next()){
                 pais = new Pais();
-                pais.setId(res.getInt("id"));
+                pais.setId(res.getInt("idPais"));
                 pais.setNome(res.getString("nome"));
                 pais.setSigla(res.getString("sigla"));
                 pais.setCapital(res.getString("capital"));
@@ -77,8 +82,10 @@ public class PerPais {
             
             return pais;            
         }catch(SQLException e){
-            return null;
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(23);
         }
+        return pais;
     }
     
     public Vector selectAll(){
@@ -88,12 +95,12 @@ public class PerPais {
         try{
             Connection con = BancodeDados.getConexao();
             Statement stmt = con.createStatement();
-            String query = "SELECT * FROM Paises";
+            String query = "SELECT * FROM Pais";
             ResultSet res = stmt.executeQuery(query);
             
-            if(res.next()){
+            while(res.next()){
                 pais = new Pais();
-                pais.setId(res.getInt("id"));
+                pais.setId(res.getInt("idPais"));
                 pais.setNome(res.getString("nome"));
                 pais.setSigla(res.getString("sigla"));
                 pais.setCapital(res.getString("capital"));
@@ -106,9 +113,10 @@ public class PerPais {
             return listaPais;
             
         }catch(SQLException e){
-            System.exit(5);
-            return null;
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(26);
         }
+        return listaPais;
     }
     
     

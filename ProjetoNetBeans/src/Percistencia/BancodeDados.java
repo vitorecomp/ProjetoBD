@@ -33,8 +33,8 @@ public class BancodeDados {
                 con = DriverManager.getConnection(URL_BD, usuario, senha);
             }
         } catch (SQLException e) {
-            System.out.println("Problemas ao abrir a conexao com o BD");
-            System.exit(4);
+            System.out.println("Problemas ao abrir a conexao com o BD" + e);
+            System.exit(1);
         }
         return con;
     }

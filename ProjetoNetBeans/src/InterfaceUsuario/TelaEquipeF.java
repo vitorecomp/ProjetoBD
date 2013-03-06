@@ -19,11 +19,13 @@ public class TelaEquipeF extends javax.swing.JFrame {
         void este(){
         PerEquipe copa = new PerEquipe();
         Equipe copa2 = copa.selectEquipe(valor);
-        
+        if(copa2 != null)
+        {
         jLabel5.setText(Integer.toString(copa2.getId()));
-        jLabel6.setText(Integer.toString(copa2.getCopa()));
-        jLabel7.setText(Integer.toString(copa2.getPais()));
-        jLabel8.setText(Integer.toString(copa2.getTreinador()));
+        jLabel7.setText(Integer.toString(copa2.getCopa()));
+        jLabel11.setText(Integer.toString(copa2.getPais()));
+        jLabel9.setText(Integer.toString(copa2.getTreinador()));
+        }
         
     }
     

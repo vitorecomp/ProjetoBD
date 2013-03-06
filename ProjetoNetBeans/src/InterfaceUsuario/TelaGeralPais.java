@@ -24,7 +24,7 @@ public class TelaGeralPais extends javax.swing.JPanel {
         Vector<Pais> time;
         time = copa.selectAll();
         while (!time.isEmpty()) {
-            varCopa = time.remove(1);
+            varCopa = time.remove(0);
             lista.addElement(varCopa.getId());
 
         }
@@ -136,7 +136,7 @@ int sede = Integer.parseInt((jTextField1.getText()));
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 int sede = Integer.parseInt(jList1.getSelectedValue().toString());
-        new TelaEquipeF(sede).setVisible(true);        // TODO add your handling code here:
+        new TelaPaisF(sede).setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

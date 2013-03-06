@@ -28,7 +28,7 @@ public class PaisDeleta extends javax.swing.JPanel {
         Vector<Pais> time;
         time = copa.selectAll();
         while (!time.isEmpty()) {
-            varCopa = time.remove(1);
+            varCopa = time.remove(0);
             lista.addElement(varCopa.getId());
             
         }

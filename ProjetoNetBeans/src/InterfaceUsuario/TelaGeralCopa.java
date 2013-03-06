@@ -24,7 +24,7 @@ public class TelaGeralCopa extends javax.swing.JPanel {
         Vector<Copa> time;
         time = copa.selecionaTodasCopas();
         while (!time.isEmpty()) {
-            varCopa = time.remove(1);
+            varCopa = time.remove(0);
             lista.addElement(varCopa.getAno());
 
         }
@@ -40,6 +40,7 @@ public class TelaGeralCopa extends javax.swing.JPanel {
      */
     public TelaGeralCopa() {
         initComponents();
+        initializeList();
     }
 
     /**
